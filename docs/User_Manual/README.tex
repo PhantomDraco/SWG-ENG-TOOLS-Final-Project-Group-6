@@ -1,0 +1,101 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+
+\title{CS 3338 Final Project - Group 6\\Sleep Fixer App}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\noindent
+\textbf{Jira Project URL:} \url{https://calstatela-cs3338-fall2025group6.atlassian.net/jira/software/projects/T6SFA/boards/233}
+\section*{Team}
+\begin{itemize}
+    \item Dang Nguyen
+    \item Rafael Caldera
+    \item Yohei Oya
+    \item Yuanwei Chen
+\end{itemize}
+
+\section*{Overview}
+The Sleep Fixer App is a mobile application for iOS and Android that helps users gradually improve their sleeping habits. Users input their current sleep schedule and desired sleep goal using time sliders, and the app creates a personalized plan with incremental adjustments to help them reach their target bedtime and wake time.
+
+Users navigate through four screens: Create Plan, View Plans, AI Info, and Dashboard. The app calculates sleep schedules based on two selectable shift options chosen by the user.
+
+\section*{System Architecture}
+The application follows this workflow:
+\begin{enumerate}
+    \item \textbf{User Input:} Users enter current sleep schedule and desired goals using time sliders.
+    \item \textbf{Plan Generation:} App generates customized sleep schedule based on user-selected shift options.
+    \item \textbf{Local Storage:} User data and calculations stored on device using Hive for offline use.
+    \item \textbf{Notifications:} App sends reminders 30 minutes before bedtime and morning check-ins.
+    \item \textbf{Progress Tracking:} Users track streaks and view weekly reports on the Dashboard.
+    \item \textbf{AI Assistant:} Optional cloud connection to AI trained on Harvard sleep studies.
+    \item \textbf{Cloud Backup:} Optional Firebase backup for data sync and social features.
+\end{enumerate}
+
+\section*{Features}
+\begin{itemize}
+    \item \textbf{Mobile Application:}
+    \begin{itemize}
+        \item Sleep plan creation with time sliders
+        \item Two selectable shift options
+        \item Plan editing and deletion
+        \item Streak counter and weekly reports
+        \item Sleep journal
+        \item Smart insights and PDF export
+        \item AI assistant trained on Harvard sleep studies
+        \item Bedtime reminders and morning check-ins
+        \item Social features (anonymous sharing, monthly challenges, badges)
+        \item Home screen widgets
+        \item Multi-language support (English, Spanish, French)
+        \item Biometric app lock
+    \end{itemize}
+\end{itemize}
+
+\section*{Technologies Used}
+\begin{itemize}
+    \item \textbf{Mobile Application:}
+    \begin{itemize}
+        \item Flutter
+        \item Dart
+        \item Provider
+        \item Hive
+    \end{itemize}
+    \item \textbf{Backend:}
+    \begin{itemize}
+        \item Firebase
+    \end{itemize}
+    \item \textbf{Libraries:}
+    \begin{itemize}
+        \item flutter\_local\_notifications
+        \item timezone
+        \item share\_plus
+        \item pdf
+        \item home\_widget
+    \end{itemize}
+\end{itemize}
+
+\section*{Installation and Access}
+\textbf{Requirements:}
+\begin{itemize}
+    \item iOS 12.0+ or Android 5.0+
+    \item 100 MB free storage
+    \item Internet connection for AI features
+\end{itemize}
+
+\textbf{Download:}
+\begin{enumerate}
+    \item Open App Store (iOS) or Google Play Store (Android)
+    \item Search "Sleep Fixer App"
+    \item Tap Get/Install
+    \item Grant notification and calendar permissions
+    \item Register or log in
+    \item Complete initial sleep assessment
+\end{enumerate}
+
+\end{document}
