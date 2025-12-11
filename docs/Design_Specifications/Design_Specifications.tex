@@ -1,0 +1,137 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\title{\Huge \textbf{Design Specifications}\\[6pt]
+    {\LARGE Sleep Fixer App}\\[10mm]
+    {\Large Group 6}}
+\author{Dang Nguyen \and Rafael Caldera \and Yohei Oya \and Yuanwei Chen}
+\date{December 2025}
+
+\begin{document}
+
+\maketitle
+
+\section*{Packages}
+
+\section*{Dependencies}
+
+\subsection*{Front-End (Flutter)}
+\begin{itemize}
+    \item \textbf{Flutter SDK (3.x):} Core cross-platform UI framework used to build iOS, Android, and Web versions of the Sleep Fixer app.
+    \item \textbf{Dart Language:} Compiled language used by Flutter for UI and business logic.
+    \item \textbf{Hive (Local NoSQL Database):}  
+    Lightweight database used for:
+    \begin{itemize}
+        \item user sleep plan storage,
+        \item daily progress tracking,
+        \item user preferences.  
+    \end{itemize}
+    Dependencies:
+    \begin{itemize}
+        \item \texttt{hive}
+        \item \texttt{hive\_flutter}
+        \item \texttt{path\_provider}
+    \end{itemize}
+
+    \item \textbf{Provider (State Management):}  
+    Used to manage UI state for:
+    \begin{itemize}
+        \item onboarding flow,
+        \item plan creation,
+        \item progress updates,
+        \item insights display.
+    \end{itemize}
+
+    \item \textbf{Flutter Local Notifications:}  
+    Supports Snapshot 2 features:
+    \begin{itemize}
+        \item bedtime reminders,
+        \item morning check-in prompts.
+    \end{itemize}
+    Dependency:
+    \begin{itemize}
+        \item \texttt{flutter\_local\_notifications}
+    \end{itemize}
+
+    \item \textbf{Intl Package:}  
+    Supports formatting sleep times, dates, weekly reports.
+
+    \item \textbf{Firebase Framework (Snapshot 3 – Community \& Cloud Sync):}
+    Used for:
+    \begin{itemize}
+        \item anonymous community posts,
+        \item monthly challenges,
+        \item optional cloud backup of sleep data,
+        \item user authentication.
+    \end{itemize}
+    Dependencies:
+    \begin{itemize}
+        \item \texttt{firebase\_core}
+        \item \texttt{firebase\_auth}
+        \item \texttt{cloud\_firestore}
+    \end{itemize}
+
+    \item \textbf{Accessibility Support (Snapshot 4):}
+    \begin{itemize}
+        \item dynamic text resizing,
+        \item screen reader compatibility.
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Back-End (Snapshot 3 -- Firebase Services)}
+Although Sleep Fixer does not use a traditional custom backend, Snapshot 3 introduces a cloud component for social features and storage.
+
+\begin{itemize}
+    \item \textbf{Firebase Authentication:}  
+    Provides anonymous or optional user login for community features.
+    
+    \item \textbf{Cloud Firestore:}  
+    Stores:
+    \begin{itemize}
+        \item community posts,
+        \item challenge participation data,
+        \item optional backups of local sleep data.
+    \end{itemize}
+    
+    \item \textbf{Firebase Functions (Optional):}  
+    Supports leaderboard logic or scheduled insights generation.
+
+    \item \textbf{Firebase Storage (Optional):}  
+    Used only if users upload journal attachments (future work).
+\end{itemize}
+
+\subsection*{Database Management}
+\begin{itemize}
+    \item \textbf{Hive Local Database (Primary Storage):}
+    \begin{itemize}
+        \item Sleep plan configuration
+        \item Daily progress entries
+        \item User preferences
+    \end{itemize}
+    Stored on-device with:
+    \begin{itemize}
+        \item no internet needed,
+        \item fast read/write performance.
+    \end{itemize}
+
+    \item \textbf{Cloud Firestore (Snapshot 3 Feature):}
+    \begin{itemize}
+        \item Backup solution,
+        \item Community data storage,
+        \item Cross-device sync of streaks or achievements.
+    \end{itemize}
+\end{itemize}
+
+\section*{Libraries}
+
+\begin{itemize}
+    \item \textbf{Flutter Material Library} – Core UI components used throughout the app.
+    \item \textbf{Provider} – Lightweight state management for dynamic screens.
+    \item \textbf{Hive} – Local NoSQL storage library for sleep plans and progress.
+    \item \textbf{firebase\_core, firebase\_auth, cloud\_firestore} – Cloud features used from Snapshot 3 onward.
+    \item \textbf{flutter\_local\_notifications} – Supports bedtime reminders.
+    \item \textbf{intl} – Formatting of time, dates, and weekly reports.
+\end{itemize}
+
+\end{document}
