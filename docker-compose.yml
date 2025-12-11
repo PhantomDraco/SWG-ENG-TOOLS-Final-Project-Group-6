@@ -1,0 +1,60 @@
+version: "3.9"
+
+services:
+  # ================================
+  # Frontend / Main Application
+  # ================================
+  sleepfixer-app:
+    # Build Flutter web app via a Dockerfile.
+    # Here it documents how the service would look.
+    build:
+      context: ./sleepfixer-app     # Folder containing Flutter project and Dockerfile
+      dockerfile: Dockerfile
+    image: sleepfixer-app:snapshot4  # Conceptual image name (final app after all snapshots)
+    container_name: sleepfixer-app
+    ports:
+      - "8080:80"                    # Host:Container (access app at http://localhost:8080)
+    environment:
+      # --- Core frameworks / libraries used in the app ---
+      - FRAMEWORK=Flutter
+      - LOCAL_STORAGE=Hive
+      - STATE_MANAGEMENT=provider
+      - NOTIFICATION_LIB=flutter_local_notifications
+      - FIREBASE_LIBS=firebase_core,firebase_auth,cloud_firestore
+
+      # --- Snapshot-based feature flags (from your snapshots doc) ---
+      - SNAPSHOT_1_CORE_PLAN=true            # Basic sleep plan + Hive local storage
+      - SNAPSHOT_2_ENGAGEMENT=true           # Smart notifications, streaks, weekly reports
+      - SNAPSHOT_3_PERSONALIZATION=true      # Insights, journal, community, better charts
+      - SNAPSHOT_4_RELEASE_POLISH=true       # Performance, accessibility, languages, security
+
+      # --- High-level configuration flags ---
+      - ENABLE_INSIGHTS=true
+      - ENABLE_JOURNAL=true
+      - ENABLE_COMMUNITY=true
+      - ENABLE_MULTILANGUAGE=true           # English, Spanish, French
+      - ENABLE_ACCESSIBILITY_FEATURES=true   # Larger fonts, better contrast, etc.
+
+    depends_on:
+      # App uses backend/social features starting Snapshot 3
+      - firebase-backend
+
+  # ================================
+  # Backend / Social + Cloud Features
+  # Conceptual service representing Firebase-based features
+  # ================================
+  firebase-backend:
+    # Run Firebase emulators or a backend API.
+    # App relies on Firebase-like services.
+    image: firebase-backend:concept
+    container_name: firebase-backend
+    ports:
+      - "4000:4000"     # Placeholder port for admin/emulator UI
+      - "8081:8081"     # Placeholder port for database/firestore-like service
+    environment:
+      - SERVICE_NAME=firebase-style-backend
+      - PROVIDES_AUTH=true          # For user login / identity (Snapshot 3)
+      - PROVIDES_DB=true            # For community posts + cloud backup
+      - USED_FOR_COMMUNITY=true     # Anonymous posts, monthly challenges
+      - USED_FOR_CLOUD_BACKUP=true
+      - NODE_ENV=development        # Just to mirror common backend style

@@ -1,0 +1,42 @@
+name: sleep_fixer
+description: A mobile app that helps users gradually adjust their sleep schedule.
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Local storage (Snapshot 1–4)
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  path_provider: ^2.0.14
+
+  # Time formatting and calculations
+  intl: ^0.19.0
+
+  # State management (matches SDD architecture)
+  provider: ^6.0.5
+
+  # Notifications (Snapshot 2: smart reminders)
+  flutter_local_notifications: ^17.0.0
+
+  # Firebase (Snapshot 3: community, cloud backup)
+  firebase_core: ^3.0.0
+  firebase_auth: ^5.0.0
+  cloud_firestore: ^5.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
