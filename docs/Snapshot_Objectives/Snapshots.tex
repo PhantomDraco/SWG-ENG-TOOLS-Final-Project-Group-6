@@ -1,0 +1,116 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Snapshot Objectives}\\[0.5cm]
+{\large Sleep Tracker App}\\[0.3cm]
+Dang Nguyen,  Rafael Caldera,     Yuanwei Chen,    Yohei Oya\\
+December 1, 2025
+\end{center}
+
+\section{Start Objective (Snapshot 1)}
+\subsection*{What the Sleep Tracker App Will Do During Its First 3 Months}
+
+When developing our Sleep Tracker app during its first three months of a 12-month project, we want to develop an application that allows people to gradually improve their sleeping habits. By allowing users to enter their desired bedtime and when they would like to be asleep, the app will assist the user in achieving their goal through gradual adjustment.
+
+Since Flutter is cross-platform, it will allow the development of the app for both iPhones and Android phones with the same programming code. Our group has divided into two teams; one team will work on how the app visually presents itself, while the other team will focus on the storage of all data for each user.
+
+For the initial phase of the project, we simply want to establish the basis for the app. Therefore, we require:
+
+\begin{itemize}
+    \item A Home Page (users will land here).
+    \item A User Login/Registration Page (allows users to register/login to access their account).
+    \item A Data Storage Area (stores user-specific data for the app).
+    \item A Main Page (where users input their current bedtime and their desired bedtime).
+\end{itemize}
+
+After the user inputs their current bedtime and their desired bedtime, the app will automatically create a plan for the user to gradually transition from their current bedtime to their desired bedtime.
+
+\subsection{Front-End}
+
+\textbf{Flutter:} The tool we selected to create our app. It will enable us to produce one version of our app that functions across both iOS and Android platforms.
+
+\textbf{Provider:} Tool used to manage state within our app and maintain organization throughout.
+
+\subsection{Back-End}
+
+\textbf{Hive:} Our chosen database solution. Hive stores all of the user's data locally on the device and does not require an active internet connection to utilize the app.
+
+\textbf{Dart:} The programming language we chose to utilize for the entire app.
+
+\section{Checkpoint 1 (Snapshot 2)}
+\subsection*{What Will Be Added to the Sleep Tracker App After Initial Development}
+
+The next step for the Sleep Tracker app after the basic functionality is implemented, is to add additional features that encourage continued usage by the end-users. The primary challenge we are attempting to resolve is to motivate users to adhere to their created sleep plans.
+
+\subsection{Additional Functionality}
+
+\textbf{Smart Notifications:} The app will send reminders 30 minutes prior to the user's bedtime, to remind them to begin their nightly wind-down routine. Upon waking, the app will inquire as to how they slept.
+
+\textbf{Streak Tracking:} Displays the number of consecutive nights the user adhered to their planned bedtime.
+
+\textbf{Weekly Reports:} On a weekly basis, the app will provide a report summarizing the user's progress over the past week. This allows the user to assess whether their improvements are consistent, or if specific days of the week pose a challenge.
+
+\subsection{Additional Dependencies}
+
+\textbf{flutter local notifications:} Allows us to send smart notifications to the user.
+
+\textbf{timezone:} Ensures that notifications are sent at the correct time regardless of the user's geographical location.
+
+\section{Checkpoint 2 (Snapshot 3)}
+\subsection*{Adding More Features to the Sleep Tracker App to Encourage Continued Usage and Motivation}
+
+Users are now utilizing the app more frequently due to the notifications we added, however, we believe we can continue to enhance the experience and increase motivation. To achieve this, we will add additional personalized elements to the app and possibly incorporate social elements to foster a sense of community among users.
+
+\subsection{Additional Functionality}
+
+\textbf{Smart Insights:} Analyzes a user's sleep data and provides recommendations based upon identified patterns. For example, if a user consistently fails to follow their sleep plan on Friday evenings, the app will recognize this pattern and suggest strategies to address this issue.
+
+\textbf{Social Community:} Enables users to share their achievements (e.g., completing a milestone) without revealing their identity. Also, incorporates a monthly challenge feature that encourages users to collaborate and support one another in sticking to their sleep plans.
+
+\textbf{Journal:} Users can record brief entries describing their nighttime experiences (e.g., consumed caffeine later than usual, felt extremely stressed). The app will attempt to identify patterns between the user's actions and their sleep quality.
+
+\textbf{Better Charts:} The new charts will be able to display how much progress is being made in relation to a longer time frame. Users are able to view how each week compares to others; users are also able to save reports and share them with doctors and other professionals if they wish to.
+
+\subsection{New Requirements}
+
+\textbf{Firebase:} We will need this to provide the social capabilities as well as an optional means of backing up user data to the cloud.
+
+\textbf{share\_plus:} Allows users to share their accomplishments through means outside of the application.
+
+\textbf{pdf:} Will allow users to print their sleep reports as PDF documents.
+
+\textbf{home\_widget:} Will allow users to place a small widget on their home screen which shows either their current streak or countdown to their next bedtime.
+
+\section{Final Checkpoint (Snapshot 4)}
+
+We are fairly pleased with the functionality of the application and feel that it has been successful in helping users improve their ability to go to sleep on time. For the final six months, our main goal is to simply ensure that the application runs smoother and is ready to be released on the app store.
+
+\subsection{Primary Objectives}
+
+\textbf{Smoothness/Performance:} To create an application that opens quickly, consumes minimal amounts of battery life, and operates without issue even on devices with slower processors.
+
+\textbf{Accessibility:} To ensure that those using screen readers or require larger font sizes may utilize the application as well.
+
+\textbf{Language Support:} Initial languages will include English, Spanish, and French to increase the number of users.
+
+\textbf{Security:} We plan to add the feature of locking the application via Face ID or fingerprint and encrypt all user data.
+
+\textbf{Error Correction/Bug Fixing:} Correct any errors or bugs and make the error messaging useful as opposed to confusing.
+
+\textbf{Preparation for App Store:} Create screenshots, write an application description, and obtain tester feedback prior to releasing the application to the Apple and Google app stores.
+
+\section{Future Work}
+
+One thing we had planned was adding Apple Watch integration to link to fitness wearables such as Fitbit and Oura Ring, however linking to those devices will take a significant amount of time. We will have to implement this after the application launches. As far as the potential to create an application specifically designed for sleep therapists to utilize with their clients, that would be another entirely separate project.
+
+We are still very proud of what we created and believe it will truly assist individuals having difficulty falling asleep on time.
+
+\section{Conclusion}
+
+We developed a clear plan for the entire year. First we focused on the fundamental operations, secondly we added features to maintain engagement, thirdly we implemented personalization and fourthly we fine-tuned everything for release. By dividing the development process into stages we avoided feeling overwhelmed and attempting to complete every aspect of the application simultaneously.
+
+\end{document}
