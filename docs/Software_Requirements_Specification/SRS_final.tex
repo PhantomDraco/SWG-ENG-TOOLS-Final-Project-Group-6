@@ -1,0 +1,171 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+
+\geometry{a4paper, margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{Software Requirements Specification}
+\setlength{\headheight}{14.5pt}
+\addtolength{\topmargin}{-2.5pt}
+
+\title{
+    {\Huge\textbf{Software Requirements Specification}}\\[15mm]
+    {\LARGE Sleep Fixer App}\\[15mm]
+    {\Large Group 6}
+}
+\author{Dang Nguyen \quad Rafael Caldera \\ Yohei Oya \quad Yuanwei Chen\\[15mm]}
+\date{December 2025}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+\section*{Revision History}
+\addcontentsline{toc}{section}{Revision History}
+\begin{table}[h!]
+    \centering
+    \begin{tabularx}{\textwidth}{|c|c|X|c|}
+    \hline
+    \textbf{Name} & \textbf{Date} & \textbf{Reason for Changes} & \textbf{Version}\\
+    \hline
+    Yuanwei Chen & 12/4/2025 & SRS document creation; Snapshot 1 functions & 1.0\\
+    \hline
+    Dang Nguyen & 4/6/2026 & Snapshot 1 fixes, Added Snapshot 2 functions & 2.0\\
+    \hline
+    Rafael Caldera & 8/8/2026 & Added Snapshot 3; Additional fixes & 3.0\\
+    \hline
+    Yohei Oya & 12/9/2026 & Added Snapshot 4; Finalize Document & 4.0\\
+    \hline
+    \end{tabularx}
+\end{table}
+\newpage
+
+\section{Introduction}
+\subsection{Purpose}
+A major issue plaguing modern societies and their economies is the sleep crisis. It is a global issue that often goes unnoticed and unrecognized, partially due to being severely under-reported. As a consequence of neglecting this major issue, many individuals fall victim to sleep deprivation, or even critical sleeping disorders such as insomnia and sleep apnea.\\[3mm]
+To help raise awareness to this problem and directly combat the sleeping issues interfering with people's lives, our group has dedicated ourselves to discovering possible solutions to this problem. Therefore, the purpose of this project is to develop and provide a useful tool to help those struggling to get enough sleep. The name of our project is called the Sleep Fixer App. This sleeping app will allow users to set up a scheduled sleeping plan to ensure that they are getting adequate sleep.\\[3mm]
+This SRS document serves to highlight to our various stakeholders what requirements our app is expected to fulfill. They include the app's functionality, features, and constraints. As such, the expected behaviors of our system are also to be documented. Outlined by the document are the external interface requirements, such as the user and software interfaces, and the legal and ethical considerations.\\[3mm]
+Essentially, this document will act as a formal agreement to our stakeholders of what our application must be able to do.
+\subsection{Intended Audience}
+\begin{itemize}
+    \item Developers: To understand what feasible functions and features need to be implemented
+    \item UI Designers: To assist in forming an interface that supports the required functions and features
+    \item Testers: To know what functionalities to be testing for, and then create appropriate test runs to validate them
+    \item Project Managers: To grasp the project scope and keep track of progress, while making necessary adjustments
+    \item End Users/System Owners/External Stakeholders: To learn more about the application and what it can do
+    \item Data Analysts: To acknowledge the legal and ethical boundaries of the collected data
+\end{itemize}
+\subsection{Software Overview}
+\subsubsection{Availability}
+The software is a mobile app, available on both Android and iOS devices. The app features an intuitive UI to help users easily get started. 
+\subsubsection{Features}
+Users will be able to input their current sleeping patterns, along with their desired sleeping goal, and the app will prepare a calculated schedule for the user to follow. These calculations will be decided by a 15-30 minute shift recommendation that automatically adjusts every night. Additionally, users will be able to organize their sleeping plans based on a planner within the app. The app will also utilize a chat-bot AI trained on Harvard sleep studies to answer any questions related to sleep.
+\subsubsection{Objective}
+Through the creation of sleeping plans, the intention is that the user will be motivated to follow the provided calculated schedules and eventually reach their desired sleep goal.
+
+\newpage
+
+\section{External Interface Requirements}
+\subsection{User Interface}
+When the user opens the app, they will be able to navigate through four different screens. This could be done by swiping through each screen or simply selecting a screen's icon at the bottom.
+\subsubsection{Home Screen}
+\begin{itemize}
+    \item Section where users select their current sleeping pattern. Using a time slider, they input when they last fell asleep and when they last woke up.
+    \item Section where users select their sleep goal. Using a time slider, they input when they want to go to sleep and when they want to wake up.
+    \item Section that provides information about the selected plan. The provided information includes the sleep duration, the number of days needed to reach the sleep goal, and the remaining time needed to shift.
+    \item Section with a button to finalize and create the sleeping plan.
+\end{itemize}
+\subsubsection{View Full Plan Screen}
+\begin{itemize}
+    \item Sections to see current plan and plans completed in the past. Plans created from the 'Home' screen show up here.
+    \item Sections with options to edit the current plan. Previous plans are no longer active, and so can't be edited, but can be deleted.
+    \item Sections with ability to cancel and delete plans. Both old and new plans can be deleted.
+    \item Section that notifies user when sleep goal has been achieved
+\end{itemize}
+\subsubsection{Sleep Fixer AI Screen}
+\begin{itemize}
+    \item Section where user can type into a text-box and get a response from an AI chatbot.
+    \item Section that displays what the user inputted into the text-box and the returned response from the AI chatbot.
+    \item Section that lists popular example prompts that the user can ask the AI. This section will also provide other resources relevant to the app.
+    \item Section with basic tutorial information on how to use the AI.
+\end{itemize}
+\subsubsection{Profile Screen}
+\begin{itemize}
+    \item Section that introduces the user's profile screen with a title and phrase.
+    \item Section where user can check their current progress and statistics. These statistics are tied to the account.
+    \item Section for settings that includes the options for turning on/off notifications, editing current sleep plans, managing data and privacy, and getting help/support about the app.
+    \item Section with a button that completely resets existing sleep plans.
+\end{itemize}
+\subsection{Software Interfaces}
+\subsubsection{Device API}
+Before the app can be used, it will ask the users for permissions of several functionalities of their device's API. 
+\begin{itemize}
+    \item Utilize the device's notification system to give users reminders about the sleep plan.
+    \item Make use of the devices' clock and calendar to keep track of time and day.
+\end{itemize}
+\subsubsection{Third-Party Packages}
+The application uses several external libraries to support core functionality.
+\begin{itemize}
+    \item flutter\_local\_notifications: Allows the app to schedule and display reminders before bedtime and morning check-ins
+    \item timezone: Ensures all notifications are sent at the correct time, even if the user travels across different time zones
+    \item share\_plus: Enables users to share their achievements or progress reports through external apps
+    \item pdf: Allows users to generate and export PDF versions of their sleep reports to share with professionals if desired
+    \item home\_widget: Provides a way to display a small home-screen widget showing streak information or a countdown to the next bedtime
+\end{itemize}
+\subsubsection{Backend Services}
+If the user chooses to use the optional social or data-backup features, the app will communicate with external backend services.
+\begin{itemize}
+    \item Firebase will be used to store community posts, generate anonymous achievements, handle monthly challenges, and optionally back up user sleep data.
+    \item All communication with Firebase occurs over secure, encrypted channels.
+\end{itemize}
+\newpage
+
+\section{System Requirements}
+These requirements define the intended behavior, performance expectations, and limitations of the Sleep Fixer App.
+\subsection{Functional Requirements}
+\begin{itemize}
+    \item The system shall allow users to input their current sleep schedule and desired sleep goal.
+    \item The system shall generate a recommended sleep adjustment plan based on gradual time shifts.
+    \item The system shall allow users to view, edit, and delete their sleep plans.
+    \item The system shall notify users about upcoming bedtimes and sleep-related reminders.
+    \item The system shall track user progress, including streaks and overall statistics.
+    \item The system shall allow users to interact with a sleep-related AI chatbot.
+    \item The system shall allow users to export their sleep reports (as PDFs).
+\end{itemize}
+\subsection{Non-functional Requirements/Constraints}
+\begin{itemize}
+    \item The application shall run smoothly on both Android and iOS devices with minimal delays.
+    \item Notifications shall trigger reliably at the scheduled times.
+    \item The app shall support accessibility settings such as larger text and screen readers.
+    \item The app shall securely store all user data locally on the device.
+    \item The system must be developed using the Flutter framework to support cross-platform deployment.
+    \item The system must comply with CCPA privacy regulations and avoid collecting unnecessary personal information.
+    \item The system shall rely on required third-party packages (e.g., flutter\_local\_notifications, timezone, pdf, share\_plus, home\_widget)
+\end{itemize}
+\newpage
+
+\section{Legal and Ethical Considerations}
+\subsection{User Data Collection and Privacy}
+The app collects user data such as the device’s current time zone, user inputs, and the calculation outputs. All this data is only to be stored locally within the user's device. The user can delete this data at any time. The data will not be saved to any cloud service or shared with external third parties without the user’s explicit consent. If the user were to delete the app, all data will be wiped from their device.
+\subsection{Legal and Ethical Issues}
+This app only generates recommended sleeping plans to the users which cannot be considered medical advice. This app is not to be used as an alternative to advice provided by medical professionals. Results will vary from individual to individual. Our app must comply with the CCPA protecting users' privacy. Only relevant data is to be used by the app; no personal identifying information is to be collected.
+\newpage
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+\begin{itemize}
+    \item SRS - Software Requirement Specification
+    \item UI - User Interface
+    \item CCPA - California Consumer Privacy Act
+    \item API - Application Programming Interface
+    \item AI - Artificial Intelligence
+\end{itemize}
+
+\end{document}
